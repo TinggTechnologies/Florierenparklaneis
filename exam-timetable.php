@@ -22,7 +22,7 @@
             <div class="text-center py-3">
               <i class="bi bi-exclamation-circle text-success" style="font-size: 2.5rem;"></i>
               </div>
-              <p>You can only edit the Exam Time Table of Florieren ParkLane
+              <p>You can only edit the Exam Time Table of Florieren Parklane International School
             </p>
 
               <!-- TinyMCE Editor -->

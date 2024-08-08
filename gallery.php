@@ -8,7 +8,7 @@
 
         <div class="section-title">
           <h2 data-aos="fade-up">School Gallery</h2>
-          <p data-aos="fade-up">All the recent activities that happened in Florieren ParkLane School.</p>
+          <p data-aos="fade-up">All the recent activities that happened in Florieren Parklane International School.</p>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">

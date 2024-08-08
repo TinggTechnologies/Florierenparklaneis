@@ -49,4 +49,6 @@ echo '
 
 ';
 
-} }}
+} }} else {
+    echo "<div class='text-center text-danger'>No message</div>";
+}

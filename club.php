@@ -12,7 +12,7 @@
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center px-lg-5">
             <h3 data-aos="fade-up">Clubs and Societies</h3>
-            <p data-aos="fade-up">At Florieren ParkLane, we encourage every student to develop their intellectual, moral, physical and social skills through well planned activities that run with their academic work. This is what we believe a genuine holistic education entails. consequently, we have the underlisted clubs and societies, which are meant to educate and stimulate the student's innate ability and potentials</p> 
+            <p data-aos="fade-up">At Florieren Parklane International School, we encourage every student to develop their intellectual, moral, physical and social skills through well planned activities that run with their academic work. This is what we believe a genuine holistic education entails. consequently, we have the underlisted clubs and societies, which are meant to educate and stimulate the student's innate ability and potentials</p> 
 
             <p data-aos="fade-up">
                 <ul  data-aos="fade-up">

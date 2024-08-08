@@ -2,6 +2,7 @@
 
 $error = [];
 $grade = "";
+$remark = "";
 
 if(isset($_GET['student_id'])){
     $student_id = $_GET['student_id'];
@@ -26,23 +27,15 @@ if(isset($_POST['result-btn'])){
     $course = stripslashes($course);
     $course = htmlspecialchars($course);
 
-    $first_term_score = trim($_POST['first_term_score']);
-    $first_term_score = stripslashes($first_term_score);
-    $first_term_score = htmlspecialchars($first_term_score);
-
-    $second_term_score = trim($_POST['second_term_score']);
-    $second_term_score = stripslashes($second_term_score);
-    $second_term_score = htmlspecialchars($second_term_score);
-
     $test_score = trim($_POST['test_score']);
     $test_score = stripslashes($test_score);
     $test_score = htmlspecialchars($test_score);
 
-    $exam_score = trim($_POST['exam_score']);
+    /* $exam_score = trim($_POST['exam_score']);
     $exam_score = stripslashes($exam_score);
-    $exam_score = htmlspecialchars($exam_score);
+    $exam_score = htmlspecialchars($exam_score); */
 
-    if(empty($section) || empty($term) || empty($course) || empty($test_score) || empty($exam_score)){
+    if(empty($section) || empty($term) || empty($course) || empty($test_score)){
         $error['result'] = "<div class='alert alert-danger'>No field should be empty</div>";
     }
 
@@ -61,47 +54,37 @@ if(isset($_POST['result-btn'])){
     }
 
     if(count($error) === 0){
-        $total_score = $test_score + $exam_score ;
+        $percentage = $test_score / 40 * 100;
         $approved = "0";
-        $cummulative = $first_term_score + $second_term_score + $total_score;
 
-        if($first_term_score === '0'){
-            $first_term_score = '-';
-        }
-        if($second_term_score === '0'){
-            $second_term_score = '-';
-        }
-
-
-        if($term === 'first'){
-            $amount = 1;
-        } elseif ($term === 'second') {
-            $amount = 2;
-        }
-        else{
-            $amount = 3;
-        }
-        $percentage = $cummulative / $amount;
-
-if($percentage >= 70){
+if($percentage >= 90){
+    $grade = "A+";
+    $remark = "Excellent";
+} elseif ($percentage >= 80 && $percentage < 90) {
     $grade = "A";
+    $remark = "Very Good";
+} elseif ($percentage >= 70 && $percentage < 80) {
+    $grade = "B";
+    $remark = "Good";
 } elseif ($percentage >= 60 && $percentage < 70) {
     $grade = "B";
+    $remark = "Fairly Good";
 } elseif ($percentage >= 50 && $percentage < 60) {
     $grade = "C";
-} elseif ($percentage >= 45 && $percentage < 50) {
+    $remark = "Average";
+} elseif ($percentage >= 40 && $percentage < 50) {
     $grade = "D";
-} elseif ($percentage >= 40 && $percentage < 45) {
-    $grade = "E";
+    $remark = "Below Avg.";
 } elseif ($percentage < 40) {
-    $grade = "F";
+    $grade = "E";
+    $remark = "Weak";
 }
 
 
 
-        $sql = "INSERT INTO result(teacher_id, student_id, course, session, term, first_term_score, second_term_score, test_score, exam_score, total_score, cummulative, percentage, grade, date, approved) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),?)";
+        $sql = "INSERT INTO result(teacher_id, student_id, course, session, term, test_score, cummulative, percentage, grade, date, approved) VALUES(?,?,?,?,?,?,?,?,?,NOW(),?)";
         $stmt = $conn->prepare($sql);
-        $stmt -> bind_param('ssssssssssssss', $teacher_id, $student_id, $course,  $section, $term, $first_term_score, $second_term_score, $test_score, $exam_score, $total_score, $cummulative, $percentage, $grade, $approved);
+        $stmt -> bind_param('ssssssssss', $teacher_id, $student_id, $course,  $section, $term, $test_score, $remark, $percentage, $grade, $approved);
         if($stmt->execute()){
             $_SESSION['student_id'] = $student_id;
             $_SESSION['student_session'] = $section;

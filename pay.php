@@ -13,7 +13,7 @@ require "backend/school-fees.php";
 <nav>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="student-dashboard.php"><i class="bi bi-house-door"></i></a></li>
-        <li class="breadcrumb-item"><a href="#">School Fees <i class="bi bi-receipt-cutoff" style="font-size: 1.2rem;"></i></a></li>
+        <li class="breadcrumb-item"><a href="#">Pay Fees <i class="bi bi-receipt-cutoff" style="font-size: 1.2rem;"></i></a></li>
                 </ol>
   </nav>
   
@@ -27,22 +27,21 @@ require "backend/school-fees.php";
           if($result->num_rows > 0){
             ?>
 
-<?php
-$sql1 = "SELECT * FROM account";
-$stmt1 = $conn->prepare($sql1);
-$stmt1->execute();
-$result1 = $stmt1->get_result();
-if($result1->num_rows > 0){
-  $row1 = $result1->fetch_assoc();
-}
-?>
-                   <h3 class="mt-5 fw-bold mb-3 text-success">Pay Now</h3>
+              <?php
+              $sql1 = "SELECT * FROM account";
+              $stmt1 = $conn->prepare($sql1);
+              $stmt1->execute();
+              $result1 = $stmt1->get_result();
+              if($result1->num_rows > 0){
+                $row1 = $result1->fetch_assoc();
+              }
+              ?>
 
-                   <div class="container text-center mt-5 mb-5">
-                <img src="./assets/img/florieren/pay2.jpeg" style="height : 16rem;" class="img-fluid" alt="">
+                   <div class="container text-center">
+                <img src="./assets/img/florieren/smart2.png" style="height : 20rem;" class="img-fluid" alt="">
               </div>
 
-              <div class="container">
+              <div class="container pt-4">
                 <a href="paystack.php" class="btn btn-success form-control" style="border-radius: 15px;">Pay Online</a>
                 <a href="./school-fees.php" class="btn btn-success form-control mt-3" style="border-radius: 15px;">Upload Receipt</a>
               </div>

@@ -46,7 +46,7 @@ require "backend/upload-student-result.php";
                 $student_row = $student_result->fetch_assoc();
               }
               ?>
-              <p class="py-2">You can upload <span class="text-success fw-bold"><?= $student_row['lastname']; ?> <?= $student_row['firstname']; ?></span> result here. if first term score or second term score is empty then just put <span class="fw-bold text-danger">0</span></p>
+              <p class="py-2">You can upload <span class="text-success fw-bold"><?= $student_row['lastname']; ?> <?= $student_row['firstname']; ?></span> exam scores here.</p>
 
               <!-- General Form Elements -->
               <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
@@ -58,64 +58,40 @@ require "backend/upload-student-result.php";
                           ?>
                         </div>
 
-                <div class="row mb-3">
-                  <div class="col-sm-12">
-                  <select name="term" id="" class="form-select" aria-label="Default select example">
-                            <option value="<?php if(isset($term)){
-                        echo $term;
-                      }else{
-                        echo "";
-                      } ?>"><?php if(isset($term)){
-                        echo $term;
-                      }else{
-                        echo "Select Term";
-                      } ?></option>
+ 
                       <?php
-                      $sql_term = "SELECT term FROM term";
+                      $sql_term = "SELECT set_term FROM set_term_tbl";
                       $term_stmt = $conn->prepare($sql_term);
                       $term_stmt->execute();
                       $term_result = $term_stmt->get_result();
                       if($term_result->num_rows > 0){
-                        while($term_row = $term_result->fetch_assoc()){
-                          echo '
-                          <option value='.$term_row['term'].'>'.$term_row['term'].'</option>
-                          ';
-                        }
+                        $term_row = $term_result->fetch_assoc();
+                        $term = $term_row['set_term'];
                       }
                       ?>
-                        </select>
-              
-                  </div>
-                </div> 
-
-                <div class="row mb-3">
-                  <div class="col-sm-12">
-                  <select name="session" id="session" class="form-select" aria-label="Default select example">
-                            <option value="<?php if(isset($section)){
-                        echo $section;
-                      }else{
-                        echo "";
-                      } ?>"><?php if(isset($section)){
-                        echo $section;
-                      }else{
-                        echo "Select Session";
-                      } ?></option>
+                       
                       <?php
-                      $sql_session = "SELECT session FROM session";
+                      $sql_session = "SELECT set_session FROM set_session_tbl";
                       $session_stmt = $conn->prepare($sql_session);
                       $session_stmt->execute();
                       $session_result = $session_stmt->get_result();
                       if($session_result->num_rows > 0){
-                        while($session_row = $session_result->fetch_assoc()){
-                          echo '
-                          <option value='.$session_row['session'].'>'.$session_row['session'].'</option>
-                          ';
-                        }
+                        $session_row = $session_result->fetch_assoc();
+                        $session = $session_row['set_session'];
                       }
                       ?>
-                        </select>
-                  </div>
-                </div> 
+
+<?php
+                      $sql_exam = "SELECT * FROM result where student_id=? AND term=? AND session=?";
+                      $exam_stmt = $conn->prepare($sql_exam);
+                      $exam_stmt->bind_param('sss', $student_id, $term, $session);
+                      $exam_stmt->execute();
+                      $exam_result = $exam_stmt->get_result();
+                      if($exam_result->num_rows > 0){
+                        $exam_row = $exam_result->fetch_assoc();
+                      }
+                      ?>
+                    
 
                 <div class="row mb-3">
                   <div class="col-sm-12">
@@ -147,18 +123,8 @@ require "backend/upload-student-result.php";
                   </div>
                 </div> 
 
-                <div class="mb-3">
-    <input type="tel" class="form-control" id="first_term_score" placeholder="Enter First Term Score(100%)" name="first_term_score">
-
-  </div>
-
   <div class="mb-3">
-    <input type="tel" class="form-control" id="second_term_score" placeholder="Enter Second Term Score(100%)" name="second_term_score">
-
-  </div>
-
-  <div class="mb-3">
-    <input type="tel" class="form-control" id="test_score" placeholder="Enter Test Score" name="test_score">
+    <input type="tel" class="form-control" id="test_score" value="<?= $exam_row['test_score']; ?>" name="test_score">
 
   </div>
 
@@ -167,7 +133,8 @@ require "backend/upload-student-result.php";
  
   </div>
   <input type="hidden" name="student_id" value="<?php echo $student_id; ?>">
-
+  <input type="hidden" name="term" value="<?php echo $term_row['set_term']; ?>">
+  <input type="hidden" name="session" value="<?php echo $session_row['set_session']; ?>">
                 <div class="row mb-3">
                   <div class="col-sm-12">
                    <button class="btn btn-success w-100" style="border-radius: 15px;" name="result-btn">Upload Result</button>

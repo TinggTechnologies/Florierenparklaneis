@@ -12,7 +12,7 @@ require "admin-header.php"; ?>
         <i class="bi bi-check-circle-fill" style="font-size: 3rem; color: green;"></i>
         </div>
     
-              <p class="text-center">Dear <span style="color: green;"><?php echo $row['lastname']; ?>,</span> You have approved <span style="color: green;"><?php echo $_SESSION['staff_lastname'] . " " . $_SESSION['staff_firstname'] ; ?></span> as a staff of Great Kings Academy.
+              <p class="text-center">Dear <span style="color: green;"><?php echo $row['lastname']; ?>,</span> You have approved <span style="color: green;"><?php echo $_SESSION['staff_lastname'] . " " . $_SESSION['staff_firstname'] ; ?></span> as a staff of Florieren Parklane International School.
               </p>
               <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
               <a href="manage-staff.php" class="btn w-100 mt-2" style="background-color: green; color: #fff;">Continue</a>

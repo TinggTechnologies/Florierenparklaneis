@@ -48,25 +48,10 @@ if(isset($_POST['result-btn'])){
     if($fees_result->num_rows > 0){
     $get_fees_result = $fees_result->fetch_assoc();
     }
-    if($row['class'] === 'Jss-1' || $row['class'] === 'Jss-2' || $row['class'] === 'Jss-3'){
-        $fees = $get_fees_result['manage_junior_fees'];
-        } else{
-          $fees = $get_fees_result['manage_senior_fees'];
-        }
-        if($fees === ''){
-          $fees = 0;
-        }
         if(empty($term) || empty($section)){
             $error['result'] = "<div class='alert alert-danger'>No field should be empty</div>";
         }
 
-     elseif($fees_rows === 0){
-        $error['result'] = "<div class='alert alert-danger'>to check result, You have to pay school fees</div>";
-    }
-
-     elseif($student_fee != $fees){
-        $error['result'] = "<div class='alert alert-danger'>you have to complete payment before you can check result</div>";
-     }
      elseif($num_of_rows === 0){
         $error['result'] = "<div class='alert alert-danger'>No result yet, check later</div>";
     }    

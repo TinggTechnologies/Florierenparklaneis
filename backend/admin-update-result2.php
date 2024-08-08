@@ -21,6 +21,12 @@ if(isset($_GET['student_first_term_score']) ){
 if(isset($_GET['student_second_term_score']) ){
     $student_second_term_score = $_GET['student_second_term_score'];
 }
+if(isset($_GET['student_test_score']) ){
+    $student_test_score = $_GET['student_test_score'];
+}
+if(isset($_GET['student_exam_score']) ){
+    $student_exam_score = $_GET['student_exam_score'];
+}
 
 if(isset($_POST['result-btn2'])){
     
@@ -37,7 +43,9 @@ if(isset($_POST['result-btn2'])){
     $student_term = $_POST['student_term'];
     $student_first_term_score = $_POST['student_first_term_score'];
     $student_second_term_score = $_POST['student_second_term_score'];
-
+    $student_test_score = $_POST['student_test_score'];
+    $student_exam_score = $_POST['student_exam_score'];
+    
 $term = trim($_POST['term']);
 $term = stripslashes($term);
 $term = htmlspecialchars($term);

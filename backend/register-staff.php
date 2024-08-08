@@ -31,7 +31,7 @@ if(isset($_POST['submit_btn'])){
     $class = $_POST['class'];
 
         $unique_id = 'staff/'. date('Y'). '/' . bin2hex(random_bytes(2));
-        $verify_email = bin2hex(random_bytes(4));
+        $verify_email = strtolower(bin2hex(random_bytes(4)));
         $verified = '0';
         
         $image = "image.png";
@@ -49,7 +49,7 @@ if(isset($_POST['submit_btn'])){
             $_SESSION['staff_verify_staff'] = $verified;
 
             $admin_id = 'admin';
-            $message = $_SESSION['staff_lastname'] . ' ' . $_SESSION['staff_firstname'] . ", registered with Florieren Park Lane" . $_SESSION['staff_class'] . ' Class';
+            $message = $_SESSION['staff_lastname'] . ' ' . $_SESSION['staff_firstname'] . ", registered with Florieren Parklane" . $_SESSION['staff_class'] . ' Class';
             $notification_sql = "INSERT INTO notification (unique_id, message, time) VALUES(?,?,NOW())";
             $notification_stmt = $conn->prepare($notification_sql);
             $notification_stmt->bind_param('ss', $admin_id, $message);

@@ -59,7 +59,7 @@ if(isset($_GET['student_id'])){
     padding: 5px 30px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
@@ -102,7 +102,7 @@ if(isset($_GET['student_id'])){
    
     <form class="typing-area mb-4" id="chat_form">
         <div id="error"></div>
-        <textarea placeholder="type something here..." id="message" name="message" class="form_data" class="input-field"></textarea>
+        <textarea placeholder="type something <?= $row['lastname']; ?>..." id="message" name="message" class="form_data" class="input-field"></textarea>
         <input type="hidden" name="outgoing_id" id="outgoing_id" value="<?= $row['student_id']; ?>">
         <input type="hidden" name="incoming_id" id="incoming_id" value="<?= $incoming_id; ?>" />
         <button type="submit" id="chat_btn"><i class="bi bi-send text-white"></i></button>

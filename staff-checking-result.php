@@ -1,12 +1,19 @@
 
 <?php
-require "main-header.php";
+require "result-header.php";
 $total_score = 0;
 $percentage = 0;
 ?>
+<link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
 <style>
     span{
         font-weight: 700;
+    }
+    body{
+        background: #fff;
+    }
+    table{
+        line-height: .9rem;
     }
 </style>
 <?php
@@ -19,13 +26,14 @@ $percentage = 0;
  $fetch = $result->fetch_assoc();
 ?>
 
-<section class="pt-5 min-vh-100">
+<section class="pt-1 min-vh-100">
 <div class="d-flex align-items-center justify-content-center pt-4">
-<img src="./assets/img/florieren/logo.png" width="40px" height="40px" alt=""> <h1 class="ms-3" style="color: darkblue; font-size: 1.5rem;">Florieren ParkLane<br /><span class="text-black">International College</span></h1>
+<img src="./assets/img/florieren/logo.png" width="40px" height="40px" alt=""> <h1 class="ms-3" style="line-height: 1; font-weight: bold; color: darkblue; font-size: 2.2rem;font-family: 'Cinzel';">FLORIEREN PARKLANE<br /><span class="text-black" style="font-size: 1.7rem; padding-left: .8rem;">INTERNATIONAL COLLEGE</span></h1>
 </div>
-<div class="container pt-1 text-right">
-    <p style="text-align: right;">1, Alhaji Nasiru Sikiru Street, Hilltop Estate, Aboru, Lagos State. <br />
-    Email: info@florierenparklane.com.ng, Tel: 08123079999
+<div class="container pt-1 text-left">
+    <p style="text-align: center;">1, Alhaji Nasiru Sikiru Street,
+Hilltop Estate, Aboru, Lagos State. <br />
+    COMPREHENSIVE ANALYSIS OF ASSESSMENT IN THE THREE DOMAINS COGNITIVE PHYSCO-MOTOR AND AFFECTIVE
 </p>
 <p style="text-align: right;">Term: <span class="text-primary"><?php echo $_SESSION['term'] ?></span> <br />Session: <span class="text-primary"><?php echo $_SESSION['session'] ?></span></p>
 <?php
@@ -38,6 +46,8 @@ if($check_get_result->num_rows > 0){
     $check_fetch = $check_get_result->fetch_assoc();
 }
 ?>
+<div style="display: flex; justify-content: space-between;">
+<div>
 <p style="text-align: left;">Name: <span class="text-primary"><?php echo $fetch['lastname'] .' '. $fetch['firstname']; ?></span><br />
 Class: <span class="text-primary"><?php echo $fetch['class']; ?></span><br />
 No of Times School Opened: <span class="text-primary"><?php 
@@ -77,18 +87,18 @@ echo $check_fetch['absent'];
 Year of Admission: <span class="text-primary"><?= $fetch['year_of_admission']; ?></span><br />
 
 </p>
-
+</div>
+<div>
+    <img style="height: 10rem;" src="./uploads/<?= $fetch['image']; ?>" />
+</div>    
+</div>
 <table class="table table-responsive table-bordered">
     <tr>
-        <th>Course</th>
-        <th>IST Term Scores(100)</th>
-        <th>2ND Term Scores(100)</th>
+        <th>SUBJECT</th>
         <th>C.A(40)</th>
-        <th>Exam(60)</th>
-        <th>Total(100)</th>
-        <th>Cummulative</th>
-        <th>Percentage</th>
-        <th>Grade</th>
+        <th>REMARKS</th>
+        <th>PERCENTAGE (%)</th>
+        <th>GRADE</th>
         <th><i class="bi bi-columns-gap"></i></th>
     </tr>
     <?php
@@ -107,11 +117,7 @@ Year of Admission: <span class="text-primary"><?= $fetch['year_of_admission']; ?
     echo '
     <tr>
     <td>'. $row['course'] .'</td>
-    <td>'. $row['first_term_score'] .'</td>
-    <td>'. $row['second_term_score'] .'</td>
     <td>'. $row['test_score'] .'</td>
-    <td>'. $row['exam_score'] .'</td>
-    <td>'. $row['total_score'] .'</td>
     <td>'. $row['cummulative'] .'</td>
     <td>'. floor($row['percentage']) .'</td>
     <td>'. $row['grade'] .'</td>
@@ -134,7 +140,7 @@ $count = $result->num_rows;
 while($row = $result->fetch_assoc()){
     ?>
     <?php
-    $total_score = $row['total_score'] + $total_score; 
+    $total_score = $row['test_score'] + $total_score; 
     $percentage = $row['percentage'] + $percentage;
 
 }
@@ -151,10 +157,10 @@ $no_of_class = $result->num_rows;
 ?>
 <div class="container">
 <h3 class="pt-2">Result Details</h3>
-<p>Total Score: <span class="text-primary"><?php echo $total_score;  ?></span> <br />
+<p>Total Score: <span class="text-primary"><?php echo $total_score;  ?> / <?php echo $count * 40 ;  ?></span> <br />
 Number in Class: <span class="text-primary"><?php echo $no_of_class;  ?></span> <br />
 <?php $count_percentage = $percentage / $count; ?>
-Percentage: <span class="text-primary"><?php echo floor($count_percentage);  ?></span> <br />
+Percentage: <span class="text-primary"><?php echo floor($count_percentage);  ?>%</span> <br />
 Class Teacher's Comment: <span class="text-primary"><?php 
 if(isset($check_fetch['student_id'])){
     if($check_fetch['comment'] === ''){
@@ -192,4 +198,4 @@ echo $check_fetch['principal_comment'];
     }
     
 </script>
-<?php require "main-footer.php"; ?>
+<?php require "result-footer.php"; ?>

@@ -8,7 +8,7 @@ if(isset($_SESSION['student'])){
 }
 $output = '';
 
-$sql = "SELECT * FROM post WHERE user='parent' OR user='both' ORDER BY post_id DESC";
+$sql = "SELECT * FROM post WHERE user='parent' OR user='both' ORDER BY post_id ASC";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->get_result();

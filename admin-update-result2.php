@@ -180,7 +180,13 @@ if(isset($error['second_term_score'])){
 
 
   <div class="mb-3">
-    <input type="tel" class="form-control" id="test_score" placeholder="Enter Test Score" name="test_score">
+    <input type="tel" class="form-control" id="test_score" value="<?php
+    if(isset($student_test_score)){
+      echo $student_test_score;
+    }else{
+      echo "Enter test Score (40%)";
+    }
+    ?>" name="test_score">
     <div class="text-danger">
     <?php
 if(isset($error['test_score'])){
@@ -191,7 +197,13 @@ if(isset($error['test_score'])){
   </div>
 
   <div class="mb-3">
-    <input type="tel" class="form-control" id="exam_score" placeholder="Enter Exam Score" name="exam_score">
+    <input type="tel" class="form-control" id="exam_score" value="<?php
+    if(isset($student_exam_score)){
+      echo $student_exam_score;
+    }else{
+      echo "Enter Exam Score (60%)";
+    }
+    ?>" name="exam_score">
     <div class="text-danger">
     <?php
 if(isset($error['exam_score'])){
@@ -209,6 +221,8 @@ if(isset($error['check'])){
   <input type="hidden" name="student_term" value="<?php echo $student_term; ?>">
   <input type="hidden" name="student_first_term_score" value="<?php echo $student_first_term_score; ?>">
   <input type="hidden" name="student_second_term_score" value="<?php echo $student_second_term_score; ?>">
+  <input type="hidden" name="student_test_score" value="<?php echo $student_test_score; ?>">
+  <input type="hidden" name="student_exam_score" value="<?php echo $student_exam_score; ?>">
   
   <button type="submit" class="btn btn-primary form-control bg-success" name="result-btn2">Upload Result</button>
 </form>

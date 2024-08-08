@@ -13,9 +13,16 @@ require "backend/staff-login.php";
   i{
     color: green;
   }
+  img{
+    border-radius: 50%;
+  }
+  h5, p{
+    color: white;
+    opacity: 1;
+  }
 </style>
 
-  <main>
+  <main class="staff-login">
     <div class="container">
 
       <section class="pt-0 section register min-vh-100 d-flex flex-column align-items-center justify-content-center">

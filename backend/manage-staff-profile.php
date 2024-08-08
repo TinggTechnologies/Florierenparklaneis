@@ -17,10 +17,9 @@ $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0){
     $fetch_data = $result->fetch_assoc();
-    $_SESSION['staff_lastname'] = $fetch_data['lastname'];
-    $email = $fetch_data['email'];
-    $firstname = $fetch_data['firstname'];
-    $lastname = $fetch_data['lastname'];
+    $_SESSION['lastname'] = $fetch_data['lastname'];
+    $_SESSION['firstname'] = $fetch_data['firstname'];
+    $_SESSION['student_class'] = $fetch_data['class'];
 }
 ?>
 
@@ -28,6 +27,9 @@ if($result->num_rows > 0){
 
 if(isset($_POST['approve-staff'])){
     $staff_id = $_POST['staff_id'];
+    $email = $_POST['email'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $sql = "UPDATE staff SET admin_verify='1', updated=NOW() WHERE unique_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $staff_id);
@@ -93,9 +95,9 @@ if(isset($_POST['approve-staff'])){
                                                 
                                                 
         <h3>Hello '.$lastname.'!</h3><br>
-        <p>if you are seeing this, then your account has been successfully verified by Florieren Park Lane International School. you can Login now and access all the functionalities. Your Student Id is '.$fetch_data['unique_id'].' and you need it with your password to login to your account.</p>
+        <p>if you are seeing this, then your account has been successfully verified by Florieren Park Lane International School. you can Login now and access all the functionalities. Your Student Id is '.$staff_id.' and you need it with your password to login to your account.</p>
         <br>
-        <p style="color: green">Mr Mike<br />
+        <p style="color: green">Mr Solomon<br />
         School Administrator
         </p>
                                             </p>

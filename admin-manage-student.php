@@ -19,7 +19,7 @@
               <div class="text-center">
               <i class="bi bi-exclamation-circle text-success" style="font-size: 2.5rem;"></i>
               </div>
-              <p>Some set of students just registered as a student of Florieren Park Lane, As the Admin you can Select a Class to verify these students.</p>
+              <p>Some set of students just registered as students, As the Admin you can Select a Class to verify these students.</p>
       
               <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
               <select name="class" class="form-control form_data">

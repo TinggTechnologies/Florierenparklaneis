@@ -12,6 +12,9 @@ if(isset($_GET['comment_id'])){
         right: 0;
         background-color: #fff;
     }
+    .bottom{
+        padding-bottom: 2rem;
+    }
 </style>
 
 

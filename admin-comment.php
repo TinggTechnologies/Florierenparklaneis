@@ -8,6 +8,9 @@
         right: 0;
         background-color: #fff;
     }
+     .bottom{
+        padding-bottom: 2rem;
+    }
 </style>
 
 <?php
@@ -93,7 +96,9 @@ if(isset($_GET['comment_id'])){
 
       ';
 
-        } }}
+        } }} else {
+          echo "<p class='text-center text-danger'>No comment</p>";
+        }
          ?>
   
         </div><!-- End Right side columns -->

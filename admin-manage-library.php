@@ -20,7 +20,7 @@
       <div class="text-center pb-2">
               <i class="bi bi-exclamation-circle text-success" style="font-size: 2.5rem;"></i>
               </div>
-              <p>As the Admin of Florieren Park Lane, you can manage the Library by verifying the books uploaded by the teachers.</p>
+              <p>You can manage the Library by verifying the books uploaded by the teachers.</p>
       
       <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
           <select name="class" class="form-control form_data">

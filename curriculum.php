@@ -12,7 +12,7 @@
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center px-lg-5">
             <h3 data-aos="fade-up">CURRICULUM</h3>
-            <p data-aos="fade-up">At Life Moulders, we run a full, balanced and extensive curriculum designed in phases to cover the Pre-school level (Age range 2-5), Elementary level ( Age range 5-11) and Secondary level (Age range 11-17). Our curricular activities are arranged towards ensuring that students are taught essential skills that will help them to become lifelong learners. While the curriculum for the Junior level is wholly Nigerian, the Senior Secondary level is enriched such that our students will be able to write SSCE, NECO, GCSE and SAT. The under-listed are the subjects offered.
+            <p data-aos="fade-up">At Florieren Parklane International School, we run a full, balanced and extensive curriculum designed in phases to cover the Pre-school level (Age range 2-5), Elementary level ( Age range 5-11) and Secondary level (Age range 11-17). Our curricular activities are arranged towards ensuring that students are taught essential skills that will help them to become lifelong learners. While the curriculum for the Junior level is wholly Nigerian, the Senior Secondary level is enriched such that our students will be able to write SSCE, NECO, GCSE and SAT. The under-listed are the subjects offered.
              </p> 
 
              <h4 data-aos="fade-up">NURSERY AND PRIMARY SECTIONS <br /> <span>PRESCHOOL (AGE RANGE 2-5 YEARS)</span></h4>

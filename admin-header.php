@@ -19,7 +19,7 @@ require "backend/manage-scratchcard-payment.php";
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Florieren ParkLane - Dashboard</title>
+  <title>Florieren Parklane International School - Dashboard</title>
   <meta content="Our Vision and Mission is to discover and develop the potentials of every child through our individual centered teaching approach and raising intellectuals and God fearing Children." name="description">
   <meta content="great kings academy, great kings, nigerian schools, top 10 nigerian schools" name="keywords">
 

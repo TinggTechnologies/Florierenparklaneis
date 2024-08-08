@@ -107,7 +107,9 @@ if($result->num_rows > 0){
 
                 <div class="row">
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                    <div class="col-lg-3 col-md-4 label">Delete Student</div>
+                    <div class="col-lg-3 col-md-4 label">
+                      <a style="background: green; color: white; padding: 7px 10px; border-radius: 15px;" href="admin-update-student-image.php?student_id=<?= $row['student_id']; ?>">Update Picture</a>
+                    </div>
                     <div class="col-lg-9 col-md-8">
                         <input type="hidden" name="student_id" value="<?php echo $student_id; ?>">
                         <button type="submit" name="admin-delete-student" class="btn btn-danger my-2 px-5 mb-5" style="border-radius: 15px;">Delete Student Record</button>

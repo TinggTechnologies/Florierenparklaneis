@@ -36,8 +36,8 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <div class="logo d-flex align-items-center">
-        <img src="./assets/img/florieren/logo.png" style="height: 30px; width: 50px;" alt="">
+      <div class="logo d-flex align-items-center" style="font-size: 1.5rem;"><span style= "font-family:cursive;">FPIS </span>
+        <img src="./assets/img/florieren/logo.png" style="height: 30px; width: 50px; margin-left: .4rem;" alt="">
       </div>
 
       <nav id="navbar" class="navbar">
@@ -81,8 +81,8 @@
           </li>
           <li class="dropdown"><a href="#"><span>News And Events</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="register-student.php">Periodic News</a></li>
-              <li><a href="register-staff.php">Events Calender</a></li>
+              <li><a href="#">Periodic News</a></li>
+              <li><a href="#">Events Calender</a></li>
               <li><a href="#">Newsletter</a></li>
               <li><a href="gallery.php">Photo Gallery</a></li>
             </ul>

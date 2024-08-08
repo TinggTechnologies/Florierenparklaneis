@@ -6,7 +6,7 @@
     <div class="row">
 
       <div class="col-lg-3 col-md-6 footer-contact">
-        <h3>Florieren ParkLane</h3>
+        <h3>Florieren Parklane International School</h3>
         <p>
           1, Alhaji Nasiru Sikiru Street,<br /> Hilltop Estate, Aboru, Lagos State<br><br>
           <strong>Phone:</strong> (+234) 812 307 9999<br>
@@ -49,7 +49,7 @@
       &copy; Copyright <strong><span>Florieren ParkLane</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      Designed by <a href="https://www.pleptech.com.ng">PLEP TECHNOLOGIES</a>
+      Designed by <a href="https://www.pleptech.com.ng">Smart Campus</a>
     </div>
   </div>
 

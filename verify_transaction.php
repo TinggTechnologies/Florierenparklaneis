@@ -4,6 +4,7 @@ require "database/connection.php";
 
 if(isset($_SESSION['student'])){
     $id = $_SESSION['student'];
+    
 }
 
 $sql = "SELECT * FROM users WHERE student_id=?";
@@ -86,4 +87,5 @@ if($ref == ""){
   } else {
     echo "<script>location.href = 'error.php';</script>";
   }
+  
 ?>

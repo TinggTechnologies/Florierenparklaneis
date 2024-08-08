@@ -3,11 +3,25 @@
 require "student-header.php";
 $total_score = 0;
 $percentage = 0;
+$remark = "";
 ?>
+<style>
+    tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+body{
+    background: white;
+}
+table, th, td {
+  border: 1px dotted black;
 
-
-<section class="signup py-4">
-<h1 class="text-center pt-5 text-success">Florieren Park Lane</h1>
+}
+</style>
+<link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+<section class="py-5 mb-5">
+<div class="d-flex align-items-center justify-content-center pt-4">
+<img src="./assets/img/florieren/logo.png" width="40px" height="40px" alt=""> <h1 class="ms-3" style="color: darkblue; font-size: 1.5rem;font-family: 'Cinzel';">Florieren ParkLane<br /><span class="text-black">International School</span></h1>
+</div>
 <div class="container pt-1 text-right">
     <p style="text-align: right;">1, Alhaji Nasiru Sikiru Street,
 Hilltop Estate, Aboru, Lagos State. <br />
@@ -66,17 +80,13 @@ Year of Admission: <span class="text-success"><?= $row['year_of_admission']; ?><
 
 </p>
 
-<table class="table table-responsive">
+<table class="table table-responsive stripped">
     <tr>
         <th>Course</th>
-        <th>IST Term Scores(100)</th>
-        <th>2ND Term Scores(100)</th>
         <th>C.A(40)</th>
-        <th>Exam(60)</th>
-        <th>Total(100)</th>
-        <th>Cummulative</th>
         <th>Percentage</th>
         <th>Grade</th>
+        <th>Remarks</th>
     </tr>
     <?php
     $student_id = $_SESSION['student'];
@@ -94,14 +104,10 @@ Year of Admission: <span class="text-success"><?= $row['year_of_admission']; ?><
     echo '
     <tr>
     <td>'. $row['course'] .'</td>
-    <td>'. $row['first_term_score'] .'</td>
-    <td>'. $row['second_term_score'] .'</td>
     <td>'. $row['test_score'] .'</td>
-    <td>'. $row['exam_score'] .'</td>
-    <td>'. $row['total_score'] .'</td>
-    <td>'. $row['cummulative'] .'</td>
     <td>'. floor($row['percentage']) .'</td>
     <td>'. $row['grade'] .'</td>
+    <td>'. $row['cummulative'] .'</td>
     </tr>
     ';
     }
@@ -120,7 +126,7 @@ $count = $result->num_rows;
 while($row = $result->fetch_assoc()){
     ?>
     <?php
-    $total_score = $row['total_score'] + $total_score; 
+    $total_score = $row['test_score'] + $total_score; 
     $percentage = $row['percentage'] + $percentage;
 
 }
@@ -138,8 +144,8 @@ $no_of_class = $result->num_rows;
 ?>
 <div class="container">
 <h3 class="pt-2">Result Details</h3>
-<p>Total Score: <span class="text-success"><?php echo $total_score;  ?></span> <br />
-Number in Class: <span class="text-success"><?php echo $no_of_class;  ?></span> <br />
+<p>Total Score: <span class="text-primary"><?php echo $total_score;  ?> / <?php echo $count * 40 ;  ?></span> <br />
+Number in Class: <span class="text-primary"><?php echo $no_of_class;  ?></span> <br />
 <?php $count_percentage = $percentage / $count; ?>
 Percentage: <span class="text-success"><?php echo floor($count_percentage);  ?></span> <br />
 

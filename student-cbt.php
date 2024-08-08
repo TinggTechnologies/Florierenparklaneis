@@ -61,7 +61,7 @@ echo $result;
   <main id="main" class="main mt-0 pt-0">
 
     <section class="section dashboard">
-    <h3 class="text-center pt-5 "><?= $course; ?></h3>
+    <h3 class="text-center pt-4"><?= $course; ?> Test</h3>
       <div class="row">
 
         <!-- Left side columns -->
@@ -128,7 +128,7 @@ echo $result;
           
       ?>
      
-      <div class="card">
+      <div class="card mt-0 pt-0">
       <div class="card-body">
         <h5 class="card-title text-center">Question <?= $num; ?></h5>
 

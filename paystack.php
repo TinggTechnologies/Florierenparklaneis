@@ -69,7 +69,7 @@ if($row['class'] === 'Jss-1' || $row['class'] === 'Jss-2' || $row['class'] === '
     <input type="hidden" id="last-name" value="<?= $row['lastname'] ?>" />
   </div>
   <div class="form-submit">
-    <button type="submit" class="btn btn-success w-100 mb-5" onclick="payWithPaystack()"> Pay <?= $fees; ?></button>
+    <button type="submit" style="border-radius: 25px;" class="btn btn-success w-100 mb-5" onclick="payWithPaystack()"> Pay <?= $fees; ?></button>
   </div>
 </form>
 </div>
@@ -98,7 +98,7 @@ function payWithPaystack(e) {
     callback: function(response){
       let message = 'Payment complete! Reference: ' + response.reference;
       alert(message);
-      window.location = "http://florierenparklaneis.com.ng/verify_transaction.php?reference=" + response.reference;
+      window.location = "http://localhost/florierenparklane.com/verify_transaction.php?reference=" + response.reference;
     }
   });
 

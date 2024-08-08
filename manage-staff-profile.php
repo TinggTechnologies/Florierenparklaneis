@@ -13,7 +13,7 @@ $stmt->bind_param('s', $staff_id);
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0){
-  $row = $result->fetch_assoc();
+  $rows = $result->fetch_assoc();
 }
 
 if(isset($_POST['delete-user'])){
@@ -121,6 +121,9 @@ if(isset($_POST['delete-user'])){
                     <div class="col-lg-3 col-md-4 label">Approve Staff</div>
                     <div class="col-lg-9 col-md-8">
                         <input type="hidden" name="staff_id" value="<?php echo $staff_id; ?>">
+                        <input type="hidden" name="email" value="<?php echo $rows['email']; ?>">
+                        <input type="hidden" name="firstname" value="<?php echo $rows['firstname']; ?>">
+                        <input type="hidden" name="lastname" value="<?php echo $rows['lastname']; ?>">
                         <button type="submit" name="approve-staff" class="btn btn-success my-3 px-5" style="border-radius: 15px;">Approve Staff</button>
                         <button type="submit" name="delete-staff" class="btn btn-danger px-5" style="border-radius: 15px;">Delete Staff</button>
                     </div>

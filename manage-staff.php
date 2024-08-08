@@ -31,7 +31,7 @@
               <div class="text-center">
               <i class="bi bi-exclamation-circle text-success" style="font-size: 2.5rem;"></i>
               </div>
-              <p>Some set of Teachers just registered as a staff of Great Kings Academy, As the Admin you can verify their account.</p>
+              <p>Some set of Teachers just registered as a staff, As the Admin you can verify their account.</p>
               </div>
           </div>
                 <?php 

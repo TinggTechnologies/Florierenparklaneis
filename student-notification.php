@@ -28,7 +28,7 @@
                 echo '
                 <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Florieren ParkLane</h5>
+                  <h5 class="card-title">Florieren Parklane International School</h5>
                   <p>'.$fetch['message'].'</p>
                   <p class="text-success">'.$fetch['time'].'</p>
     

@@ -187,7 +187,7 @@ require "includes/header.php";
             'Password does not match',
             'error'
           );
-        } */
+        } 
   
     else{$.ajax({
       url:'backend/register-staff.php',

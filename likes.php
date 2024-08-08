@@ -45,7 +45,7 @@ if(isset($_GET['comment_id'])){
 
  <section class="section dashboard mt-4 ">
 
-          <div class="row">
+          <div class="row justify-content-center">
             <?php
 
           $sql = "SELECT * FROM post WHERE post_id='$comment_id'";

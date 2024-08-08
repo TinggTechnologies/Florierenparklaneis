@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -17,9 +18,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0){
     $fetch_data = $result->fetch_assoc();
-    $email = $fetch_data['email'];
-    $firstname = $fetch_data['firstname'];
-    $lastname = $fetch_data['lastname'];
     $_SESSION['lastname'] = $fetch_data['lastname'];
     $_SESSION['firstname'] = $fetch_data['firstname'];
     $_SESSION['student_class'] = $fetch_data['class'];
@@ -30,6 +28,9 @@ if($result->num_rows > 0){
 
 if(isset($_POST['admin-approve-student'])){
     $student_id = $_POST['student_id'];
+    $email = $_POST['email'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $sql = "UPDATE users SET admin_verify='1', updated=NOW() WHERE student_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $student_id);
@@ -51,14 +52,14 @@ if(isset($_POST['admin-approve-student'])){
     
         $mail->isHTML(true);
     
-        $mail->Subject = "Verify Email Address.";
+        $mail->Subject = "Student Account Verified.";
         $mail->Body = '<!doctype html>
         <html lang="en-US">
     
         <head>
             <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-            <title>Verify Email Address</title>
-            <meta name="description" content="Verify Email Address">
+            <title>Student Account Verified</title>
+            <meta name="description" content="Student Account Verified">
             <style type="text/css">
                 a:hover {text-decoration: underline !important;}
             </style>
@@ -95,9 +96,9 @@ if(isset($_POST['admin-approve-student'])){
                                                 
                                                 
         <h3>Hello '.$lastname.'!</h3><br>
-        <p>if you are seeing this, then your account has been successfully verified by Florieren Park Lane International School. you can Login now and access all the functionalities. Your Student Id is '.$fetch_data['student_id'].' and you need it with your password to login to your account.</p>
+        <p>if you are seeing this, then your account has been successfully verified by Florieren Parklane International School. you can Login now and access all the functionalities. Your Student Id is '.$student_id.' and you need it with your password to login to your account.</p>
         <br>
-        <p style="color: green">Mr Mike<br />
+        <p style="color: green">Mr Solomon<br />
         School Administrator
         </p>
                                             </p>

@@ -37,7 +37,7 @@ if(isset($_POST['password-btn'])){
         $stmt->bind_param('ss', $password, $unique_id);
         
         if($stmt->execute()){
-            $message = "You have successfully registered with Great Kings Academy.";
+            $message = "You have successfully registered with Florieren Parklane International School.";
             $notification_sql = "INSERT INTO notification (unique_id, message, time) VALUES(?,?,NOW())";
             $notification_stmt = $conn->prepare($notification_sql);
             $notification_stmt->bind_param('ss', $unique_id, $message);

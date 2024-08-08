@@ -46,5 +46,5 @@ if($fetch['outgoing_id'] === $outgoing_id){
 }
 }
 if($result->num_rows === 0){
-echo "<div class='text-center mt-5 pt-5 fw-bold'>No Message</div>";
+echo "<div class='text-center mt-5 pt-5 fw-bold' style='font-size: 1.3rem;'>No Message</div>";
 }

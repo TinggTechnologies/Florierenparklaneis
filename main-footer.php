@@ -1,10 +1,10 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Florieren Park Lane International School</span></strong>. <br />All Rights Reserved
+      &copy; Copyright <strong><span>Florieren Parklane International School</span></strong>. <br />All Rights Reserved
     </div>
     <div class="credits">
-      Designed by PLEP TECHNOLOGIES
+      Designed by Smart Campus
     </div>
   </footer><!-- End Footer -->
 
